@@ -19,9 +19,9 @@ export default function Header() {
 					</Container>
 				</Navbar>
 				<Switch>
-					<Route path='/About' component={About } ></Route>
-					<Route path='/Users' component={Users } ></Route>
-					<Route path='/Home' component={Home } ></Route>
+					<Route path='/About' component={About} ></Route>
+					<Route path='/Users' component={Users} ></Route>
+					<Route path='/Home' component={Home} ></Route>
 				</Switch>
 			</Router>
 		</div>
