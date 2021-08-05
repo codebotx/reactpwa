@@ -9,7 +9,7 @@ this.addEventListener("install", (event) => {
                 './index.html',
                 './',
                 './users',
-                './about'
+                './about',
             ])
         })
     )
@@ -22,6 +22,8 @@ this.addEventListener('fetch', (event) => {
                 if (resp) {
                     return resp
                 }
+                let requestUrl = event.request.clone();
+                return fetch(requestUrl)
             })
         )
 

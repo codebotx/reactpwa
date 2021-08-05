@@ -9,7 +9,7 @@ export default function Header() {
 		<div>
 			<Router>
 				<Navbar bg="dark" variant="dark">
-					<Container>
+					<Container fluid>
 						<Navbar.Brand href="#home">Blog</Navbar.Brand>
 						<Nav className="me-auto">
 							<Nav.Link><Link to="/">Home</Link></Nav.Link>

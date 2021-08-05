@@ -1,21 +1,38 @@
 import React, { useState, useEffect } from 'react'
-import { Table } from 'react-bootstrap'
+import { Table, Alert } from 'react-bootstrap'
 
 export default function Users() {
 	const [data, setData] = useState([])
+	const [mode, setMode] = useState('online');
 	useEffect(() => {
 		let url = "https://jsonplaceholder.typicode.com/users"
 		fetch(url).then((response) => {
 			response.json().then((result) => {
 				console.warn(result)
 				setData(result)
+				localStorage.setItem("users", JSON.stringify(result))
 			})
+
+		}).catch(err => {
+			let collection = localStorage.getItem("users")
+			setData(JSON.parse(collection))
+			setMode('offline')
 
 		})
 	}, [])
 
 	return (
 		<div>
+			<div>
+				{
+					mode === 'offline' ?
+						<Alert variant="warning">
+							<Alert.Heading>Offline!</Alert.Heading>
+						</Alert>
+						: null
+
+				}
+			</div>
 			<Table striped bordered hover variant="dark">
 				<thead>
 					<tr>
